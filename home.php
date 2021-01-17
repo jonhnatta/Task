@@ -7,9 +7,7 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['perfil'])){
 
 require_once('db/conexao.php');
 
-$email = $_SESSION['email'];
-
-$sql = "SELECT * FROM usuario WHERE email= '".$email."'";
+$sql = "SELECT * FROM usuario WHERE email = '".$_SESSION['email']."'";
 
 $resultado = mysqli_query($con, $sql);
 
