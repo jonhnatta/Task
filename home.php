@@ -16,7 +16,6 @@ if (!isset($_SESSION['login']) && !isset($_SESSION['senha'])){
   <a href="">Cadastrar Tarefa</a>
   <a href="">Listar Tarefas</a>
   <a href="">Sair</a><br><br>
-
 <table border="1"> 
   <tr>
     <td>Título</td>

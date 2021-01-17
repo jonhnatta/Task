@@ -27,6 +27,8 @@ if (isset($_GET['erro'])){
     <input type="submit" value="Enviar">
     <span><?php echo $erro; ?></span>
   </form>
+<br>
+  <a href="cadastro.php">cadastrar</a>
 </body>
 
 </html>
