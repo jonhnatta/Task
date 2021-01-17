@@ -9,7 +9,7 @@ $data = $_POST['data'];
 $hora = $_POST['hora'];
 
 $sql = "INSERT INTO 
-            tarefas (titulo, descricao, hora)
+            tarefas (titulo, descricao, data, hora)
             VALUES ('$titulo', '$desc','$hora')
       ";
 

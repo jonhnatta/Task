@@ -20,6 +20,6 @@ if(mysqli_num_rows($resultado) >0){
   $_SESSION['perfil'] = $dados['perfil_usuario_id'];
   header("location:../home.php");
 }else{
-  header("location:../index.php?erro=1");
+  header("location:../index.php?erro=2");
 }
 ?>

@@ -4,12 +4,12 @@ if (isset($_GET['erro'])){
   if($_GET['erro'] == 1){
     $erro = 'Acesso Negado';
   }else if($_GET['erro'] == 2){
-    $erro = 'Login ou senha invalidos';
+    $erro = 'Usuário ou Senha Inválido!';
   }else if($_GET['erro'] == 3){
     $erro = 'Logout efetuado com sucesso!';
-  }else{
-    $erro = "";
   }
+}else{
+  $erro ="";
 }
 
 ?>
@@ -25,11 +25,11 @@ if (isset($_GET['erro'])){
 
 <body>
   <form action="db/verifica_login.php" method="POST">
-  <span><?php echo $erro; ?></span><br><br>
+  <span><?php echo $erro ?></span><br><br>
     <label for="login">Login</label><br>
-    <input type="text" name="login" value="jonatta89@gmail.com"><br>
+    <input type="text" name="login" placeholder="Digite seu email para login"><br>
     <label for="senha">Senha</label><br>
-    <input type="password" name="senha" value="123456"><br><br>
+    <input type="password" name="senha" placeholder="Digite sua senha"><br><br>
     <input type="submit" value="Enviar">
   </form>
 <br>

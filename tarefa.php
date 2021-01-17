@@ -9,10 +9,10 @@
   <form action="db/cad_tarefa.php" method="POST">
     <label for="nome">Titulo</label>
     <input type="text" name="titulo"><br><br>
-    <label>Descrição</label>
+    <label>Descrição</label><br>
     <textarea name="descricao"></textarea><br><br>
     <input type="date" name="data"><br><br>
-    <input type="datetime" name="hora"><br><br>
+    <input type="time" name="hora"><br><br>
    <input type="submit" value="Cadastrar">
   </form>
 
