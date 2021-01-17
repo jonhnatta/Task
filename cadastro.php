@@ -27,9 +27,12 @@
      
      if (senha != senha2){
      
+    
       document.getElementById("senha2").style.border="red 2px solid";
      }else {
+     
       document.getElementById("senha2").style.border="green 2px solid";
+      
      }
    
     
