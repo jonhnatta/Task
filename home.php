@@ -1,8 +1,20 @@
 <?php
+session_start();
 
-if (!isset($_SESSION['login']) && !isset($_SESSION['senha'])){
-  header('location:index.php?erro=1');
+if (!isset($_SESSION['email']) && !isset($_SESSION['perfil'])){
+   header('location:index.php?erro=1');
 }
+
+require_once('db/conexao.php');
+
+$sql = "SELECT * FROM usuario";
+
+$resultado = mysqli_query($con, $sql);
+
+$dados = mysqli_fetch_array($resultado);
+
+echo '<pre>';
+print_r($dados);
 
 ?>
 <!DOCTYPE html>
@@ -15,7 +27,7 @@ if (!isset($_SESSION['login']) && !isset($_SESSION['senha'])){
 <body>
   <a href="">Cadastrar Tarefa</a>
   <a href="">Listar Tarefas</a>
-  <a href="">Sair</a><br><br>
+  <a href="db/sair.php">Sair</a><br><br>
 <table border="1"> 
   <tr>
     <td>Título</td>
@@ -24,10 +36,10 @@ if (!isset($_SESSION['login']) && !isset($_SESSION['senha'])){
     <td>Descrição</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><?php  ?></td>
+    <td><?php ?></td>
+    <td><?php ?></td>
+    <td><?php ?></td>
   </tr>
 </table>
 </body>

@@ -6,7 +6,7 @@
   <title>task</title>
 </head>
 <body>
-  <form action="" method="POST">
+  <form action="db/cad_user.php" method="POST">
     <label for="nome">Nome</label>
     <input type="text" name="nome"><br>
     <label for="">Email</label>

@@ -1,10 +1,15 @@
 <?php
 
 if (isset($_GET['erro'])){
-  if($_GET['erro'] == 1);
-  $erro = 'Login ou senha invalidos';
-}else {
-  $erro = "";
+  if($_GET['erro'] == 1){
+    $erro = 'Acesso Negado';
+  }else if($_GET['erro'] == 2){
+    $erro = 'Login ou senha invalidos';
+  }else if($_GET['erro'] == 3){
+    $erro = 'Logout efetuado com sucesso!';
+  }else{
+    $erro = "";
+  }
 }
 
 ?>
@@ -19,13 +24,13 @@ if (isset($_GET['erro'])){
 </head>
 
 <body>
-  <form action="">
+  <form action="db/verifica_login.php" method="POST">
+  <span><?php echo $erro; ?></span><br><br>
     <label for="login">Login</label><br>
-    <input type="text" name="login"><br>
+    <input type="text" name="login" value="jonatta89@gmail.com"><br>
     <label for="senha">Senha</label><br>
-    <input type="password" name="senha"><br><br>
+    <input type="password" name="senha" value="123456"><br><br>
     <input type="submit" value="Enviar">
-    <span><?php echo $erro; ?></span>
   </form>
 <br>
   <a href="cadastro.php">cadastrar</a>
