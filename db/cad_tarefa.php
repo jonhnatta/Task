@@ -10,8 +10,8 @@ $hora = $_POST['hora'];
 $id_user = $_SESSION['id'];
 
 $sql = "INSERT INTO 
-            tarefas (titulo, descricao, data, hora)
-            VALUES ('$titulo', '$desc','$hora')
+            tarefas (titulo, descricao, data, hora, usuario_id, categoria_id)
+            VALUES ('$titulo', '$desc','$data','$hora',hora,hora)
       ";
 
 $resultado = mysqli_query($con, $sql);

@@ -1,3 +1,8 @@
+<?php 
+
+require_once('db/conexao.php')
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
