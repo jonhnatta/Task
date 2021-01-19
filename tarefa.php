@@ -1,6 +1,9 @@
 <?php 
 
-require_once('db/conexao.php')
+require_once('db/conexao.php');
+
+$sql = "SELECT * FROM categoria";
+$result_cat = mysqli_query($con, $sql);
 
 ?>
 <!DOCTYPE html>
@@ -16,6 +19,13 @@ require_once('db/conexao.php')
     <input type="text" name="titulo"><br><br>
     <label>Descrição</label><br>
     <textarea name="descricao"></textarea><br><br>
+    <select name="categoria">
+      <?php foreach ($result_cat as $key => $value) { ?>
+        
+        <option value="<?php echo $value['id'] ?>"><?php echo $value['nome'] ?></option>
+
+      <?php } ?>
+    </select>
     <input type="date" name="data"><br><br>
     <input type="time" name="hora"><br><br>
    <input type="submit" value="Cadastrar">
