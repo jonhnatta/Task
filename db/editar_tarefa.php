@@ -14,11 +14,6 @@ $result_cat = mysqli_query($con, $sql);
   <title>task</title>
 </head>
 <body>
-<body>
-  <a href="tarefa.php">Cadastrar Tarefa</a>
-  <a href="">Listar Tarefas</a>
-  <a href="db/sair.php">Sair</a><br><br>
-
   <form action="db/cad_tarefa.php" method="POST">
     <label for="nome">Titulo</label>
     <input type="text" name="titulo"><br><br>
@@ -33,7 +28,7 @@ $result_cat = mysqli_query($con, $sql);
     </select><br><br>
     <input type="date" name="data"><br><br>
     <input type="time" name="hora"><br><br>
-   <input type="submit" value="Cadastrar">
+   <input type="submit" value="Editar">
   </form>
 
 </body>

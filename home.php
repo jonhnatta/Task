@@ -30,6 +30,7 @@ $result_tarefa = mysqli_query($con, $sql);
     <td>Hora</td>
     <td>Descrição</td>
     <td>Categoria</td>
+    <td>Opções</td>
   </tr>
 <?php foreach ($result_tarefa as $key => $value) { ?>
   <tr>
@@ -37,6 +38,7 @@ $result_tarefa = mysqli_query($con, $sql);
       <td><?= date("d/m/Y", strtotime($value['data'])); ?></td>
       <td><?= $value['hora'];?></td>
       <td><?= $value['descricao'];?></td>
+      <td><a href="editar_tarefa.php?id=<?= $value['id'];?>">Editar</a></td>
     </tr>
 <?php } ?>
   
