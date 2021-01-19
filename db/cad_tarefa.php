@@ -1,12 +1,13 @@
 <?php
 
 require_once("conexao.php");
-
+session_start();
 
 $titulo = $_POST['titulo'];
 $desc = $_POST['descricao'];
 $data = $_POST['data'];
 $hora = $_POST['hora'];
+$id_user = $_SESSION['id'];
 
 $sql = "INSERT INTO 
             tarefas (titulo, descricao, data, hora)
