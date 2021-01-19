@@ -25,7 +25,7 @@ $result_cat = mysqli_query($con, $sql);
         <option value="<?php echo $value['id'] ?>"><?php echo $value['nome'] ?></option>
 
       <?php } ?>
-    </select>
+    </select><br><br>
     <input type="date" name="data"><br><br>
     <input type="time" name="hora"><br><br>
    <input type="submit" value="Cadastrar">

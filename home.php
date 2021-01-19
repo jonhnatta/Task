@@ -22,7 +22,7 @@ $dados = mysqli_fetch_array($resultado);
   <title>task</title>
 </head>
 <body>
-  <a href="">Cadastrar Tarefa</a>
+  <a href="tarefa.php">Cadastrar Tarefa</a>
   <a href="">Listar Tarefas</a>
   <a href="db/sair.php">Sair</a><br><br>
 

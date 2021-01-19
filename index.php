@@ -27,13 +27,14 @@ if (isset($_GET['erro'])){
   <form action="db/verifica_login.php" method="POST">
   <span><?php echo $erro ?></span><br><br>
     <label for="login">Login</label><br>
-    <input type="text" name="login" placeholder="Digite seu email para login"><br>
+    <input type="text" name="login" placeholder="Digite seu email para login" value="jonatta89@gmail.com"><br>
     <label for="senha">Senha</label><br>
-    <input type="password" name="senha" placeholder="Digite sua senha"><br><br>
+    <input type="password" name="senha" placeholder="Digite sua senha" value="123456"><br><br>
     <input type="submit" value="Enviar">
   </form>
 <br>
   <a href="cadastro.php">cadastrar</a>
+ 
 </body>
 
 </html>
