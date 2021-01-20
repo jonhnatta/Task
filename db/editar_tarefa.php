@@ -1,10 +1,16 @@
 <?php 
 
-require_once('db/conexao.php');
+require_once('conexao.php');
 
 $sql = "SELECT * FROM categoria";
 $result_cat = mysqli_query($con, $sql);
-$sql2 = ""
+
+$id = $_GET['id'];
+
+$sql2 = "SELECT * FROM tarefas WHERE id= $id";
+$result_tarefa = mysqli_query($con, $sql2);
+
+$tarefa = mysqli_fetch_array($result_tarefa);
 
 ?>
 <!DOCTYPE html>
@@ -21,19 +27,28 @@ $sql2 = ""
   <a href="db/sair.php">Sair</a><br><br>
 
   <form action="db/cad_tarefa.php" method="POST">
-    <label for="nome">Titulo</label>
-    <input type="text" name="titulo"><br><br>
+    <label>Titulo</label>
+    <input type="text" name="titulo" value="<?= $tarefa['titulo'];?>"><br><br>
     <label>Descrição</label><br>
-    <textarea name="descricao"></textarea><br><br>
+    <textarea name="descricao"><?= $tarefa['descricao'];?></textarea><br><br>
     <select name="categoria">
       <?php foreach ($result_cat as $key => $value) { ?>
         
-        <option value="<?php echo $value['id'] ?>"><?php echo $value['nome'] ?></option>
+        <option value="<?php echo $value['id'] ?>"
+        
+        <?php 
+          if ($value['id'] == $tarefa['categoria_id']){
+            echo "selected";
+          }
+
+        ?>
+
+        ><?php echo $value['nome'] ?></option>
 
       <?php } ?>
     </select><br><br>
-    <input type="date" name="data"><br><br>
-    <input type="time" name="hora"><br><br>
+    <input type="date" name="data" value="<?= $tarefa['data'];?>"><br><br>
+    <input type="time" name="hora" value="<?= $tarefa['hora'];?>"><br><br>
    <input type="submit" value="Editar">
   </form>
 

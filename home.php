@@ -7,7 +7,7 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['perfil'])){
 
 require_once('db/conexao.php');
 
-$sql = "SELECT * FROM tarefas WHERE usuario_id = '".$_SESSION['id']."'";
+$sql = "SELECT * FROM tarefas WHERE usuario_id = '".$_SESSION['id']."'ORDER BY data asc";
 $result_tarefa = mysqli_query($con, $sql);
 
 ?>
@@ -38,7 +38,7 @@ $result_tarefa = mysqli_query($con, $sql);
       <td><?= date("d/m/Y", strtotime($value['data'])); ?></td>
       <td><?= $value['hora'];?></td>
       <td><?= $value['descricao'];?></td>
-      <td><a href="editar_tarefa.php?id=<?= $value['id'];?>">Editar</a></td>
+      <td><a href="db/editar_tarefa.php?id=<?= $value['id'];?>">Editar</a></td>
     </tr>
 <?php } ?>
   
