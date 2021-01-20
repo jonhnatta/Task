@@ -4,6 +4,7 @@ require_once('db/conexao.php');
 
 $sql = "SELECT * FROM categoria";
 $result_cat = mysqli_query($con, $sql);
+$sql2 = ""
 
 ?>
 <!DOCTYPE html>
@@ -14,6 +15,11 @@ $result_cat = mysqli_query($con, $sql);
   <title>task</title>
 </head>
 <body>
+<body>
+  <a href="tarefa.php">Cadastrar Tarefa</a>
+  <a href="">Listar Tarefas</a>
+  <a href="db/sair.php">Sair</a><br><br>
+
   <form action="db/cad_tarefa.php" method="POST">
     <label for="nome">Titulo</label>
     <input type="text" name="titulo"><br><br>
