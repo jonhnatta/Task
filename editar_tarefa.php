@@ -1,6 +1,6 @@
 <?php 
 
-require_once('conexao.php');
+require_once('db/conexao.php');
 
 $sql = "SELECT * FROM categoria";
 $result_cat = mysqli_query($con, $sql);

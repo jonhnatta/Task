@@ -20,9 +20,6 @@ $sql = "INSERT INTO
 
 $resultado = mysqli_query($con, $sql);
 
-
-echo $id_user;
-
 if($resultado == true){
       header("location: ../home.php");
 }
