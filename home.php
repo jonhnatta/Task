@@ -9,10 +9,16 @@ require_once('db/conexao.php');
 
 $id = $_SESSION['id'];
 
+if (isset($_GET['busca'])){
+  $busca = $_GET['busca'];
+}else {
+  $busca = '';
+}
+
 if ($_SESSION['perfil'] != 1){
-  $sql = "SELECT *,t.id as idt FROM tarefas t WHERE usuario_id = $id ORDER BY data, hora asc";
+  $sql = "SELECT *,t.id as idt FROM tarefas t WHERE usuario_id = $id AND (titulo LIKE '%$busca%' OR descricao LIKE '%$busca%') ORDER BY data, hora asc";
 }else{
-  $sql = "SELECT *, u.id as idu, t.id as idt FROM tarefas t, usuario u WHERE t.usuario_id = u.id ORDER BY data, hora asc";
+  $sql = "SELECT *, u.id as idu, t.id as idt FROM tarefas t, usuario u WHERE t.usuario_id = u.id AND (titulo LIKE '%$busca%' OR descricao LIKE '%$busca%') ORDER BY data, hora asc";
 }
 
 $result_tarefa = mysqli_query($con, $sql);
@@ -31,7 +37,12 @@ $result_tarefa = mysqli_query($con, $sql);
   <a href="home.php">Listar Tarefas</a>
   <a href="db/sair.php">Sair</a><br><br>
 
-<h1> Olá, seja bem vindo(a) <?= $_SESSION['nome'] ?>!</h1>
+<h1> Olá, <?= $_SESSION['nome'] ?>!</h1>
+
+<form action="">
+<input type="text" name="busca" placeholder="Digite para buscar">
+<button>Buscar</button><br><br>
+</form>
 
 <table border="1"> 
   <tr>
