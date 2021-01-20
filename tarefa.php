@@ -16,7 +16,7 @@ $result_cat = mysqli_query($con, $sql);
 <body>
 <body>
   <a href="tarefa.php">Cadastrar Tarefa</a>
-  <a href="">Listar Tarefas</a>
+  <a href="home.php">Listar Tarefas</a>
   <a href="db/sair.php">Sair</a><br><br>
 
   <form action="db/cad_tarefa.php" method="POST">

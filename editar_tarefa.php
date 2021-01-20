@@ -23,10 +23,10 @@ $tarefa = mysqli_fetch_array($result_tarefa);
 <body>
 <body>
   <a href="tarefa.php">Cadastrar Tarefa</a>
-  <a href="">Listar Tarefas</a>
+  <a href="home.php">Listar Tarefas</a>
   <a href="db/sair.php">Sair</a><br><br>
 
-  <form action="db/cad_tarefa.php" method="POST">
+  <form action="db/salvar_tarefa_editada.php?id=<?= $id;?>" method="POST">
     <label>Titulo</label>
     <input type="text" name="titulo" value="<?= $tarefa['titulo'];?>"><br><br>
     <label>Descrição</label><br>

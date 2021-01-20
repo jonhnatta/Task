@@ -7,7 +7,12 @@ if (!isset($_SESSION['email']) && !isset($_SESSION['perfil'])){
 
 require_once('db/conexao.php');
 
-$sql = "SELECT * FROM tarefas WHERE usuario_id = '".$_SESSION['id']."'ORDER BY data asc";
+if ($_SESSION['perfil'] != 1){
+  $sql = "SELECT * FROM tarefas WHERE usuario_id = '".$_SESSION['id']."'ORDER BY data, hora asc";
+}else{
+  $sql = "SELECT * FROM tarefas t, usuario u WHERE t.usuario_id = u.id ORDER BY data, hora asc";
+}
+
 $result_tarefa = mysqli_query($con, $sql);
 
 ?>
@@ -20,11 +25,12 @@ $result_tarefa = mysqli_query($con, $sql);
 </head>
 <body>
   <a href="tarefa.php">Cadastrar Tarefa</a>
-  <a href="">Listar Tarefas</a>
+  <a href="home.php">Listar Tarefas</a>
   <a href="db/sair.php">Sair</a><br><br>
 
 <table border="1"> 
   <tr>
+    <td>Usuário</td>
     <td>Título</td>
     <td>Data</td> 
     <td>Hora</td>
@@ -34,6 +40,7 @@ $result_tarefa = mysqli_query($con, $sql);
   </tr>
 <?php foreach ($result_tarefa as $key => $value) { ?>
   <tr>
+      <td><?= $value['nome'];?></td>
       <td><?= $value['titulo'];?></td>
       <td><?= date("d/m/Y", strtotime($value['data'])); ?></td>
       <td><?= $value['hora'];?></td>

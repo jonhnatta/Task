@@ -30,7 +30,7 @@ if (isset($_GET['erro'])){
     <input type="text" name="login" placeholder="Digite seu email para login" value="jonatta89@gmail.com"><br>
     <label for="senha">Senha</label><br>
     <input type="password" name="senha" placeholder="Digite sua senha" value="123456"><br><br>
-    <input type="submit" value="Enviar">
+    <input type="submit" value="Entrar">
   </form>
 <br>
   <a href="cadastro.php">cadastrar</a>
