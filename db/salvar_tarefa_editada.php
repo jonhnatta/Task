@@ -1,8 +1,8 @@
 <?php
 
-require_once("conexao.php");
+require_once('bloqueio.php');
 
-session_start();
+require_once("conexao.php");
 
 $titulo = $_POST['titulo'];
 $desc = $_POST['descricao'];

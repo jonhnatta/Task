@@ -1,12 +1,12 @@
 <?php
 
+
 if (isset($_GET['erro'])) {
   if ($_GET['erro'] == 1) {
-    $erro = 'As senhas digitadas não conferem';
+    $erro = 'As senhas digitadas são diferentes!!!';
   }
 }
 
-session_start();
 
 ?>
 

@@ -1,5 +1,7 @@
 <?php 
 
+require_once('db/bloqueio.php');
+
 require_once('header.php');
 
 require_once('db/conexao.php');

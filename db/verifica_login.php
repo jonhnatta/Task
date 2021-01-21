@@ -1,8 +1,9 @@
 <?php
 
+require_once('bloqueio.php');
+
 require_once('conexao.php');
 
-session_start();
 
 $email = $_POST['login'];
 $senha = md5($_POST['senha']);

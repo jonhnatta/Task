@@ -1,10 +1,7 @@
 <?php
+
+require_once('db/bloqueio.php');
 require_once('header.php');
-
-if (!isset($_SESSION['email']) && !isset($_SESSION['perfil'])) {
-  header('location:index.php?erro=1');
-}
-
 require_once('db/conexao.php');
 
 $id = $_SESSION['id'];

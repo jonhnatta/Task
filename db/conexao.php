@@ -1,5 +1,6 @@
 <?php
 
+require_once('bloqueio.php');
 
 $servidor = "localhost";
 $senha = "";
