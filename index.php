@@ -11,7 +11,6 @@ if (isset($_GET['erro'])) {
 } else {
   $erro = "";
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -21,60 +20,51 @@ if (isset($_GET['erro'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
-<body>
-
-  <div id="login">
-    <h3 class="text-center text-white pt-5">Task Login</h3>
-    <div class="container">
-      <div id="login-row" class="row justify-content-center align-items-center">
-        <div id="login-column" class="col-md-6">
+<section class="section section-login">
+  <div class="valign-wrapper row login-box">
+    <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
+      <form action="db/verifica_login.php" method="POST">
+        <div class="card-content">
 
           <?php if (isset($_GET['erro'])) {
             if ($_GET['erro'] == 1) { ?>
-              <div class="alert alert-danger text-center" role="alert">
-                <?php echo $erro ?>
-              </div>
-            <?php } else if ($_GET['erro'] == 2) { ?>
-              <div class="alert alert-danger text-center" role="alert">
-                <?php echo $erro ?>
-              </div>
-            <?php } else if ($_GET['erro'] == 3) { ?>
-              <div class="alert alert-success text-center" role="alert">
-                <?php echo $erro ?>
-              </div>
-            <?php } ?>
-          <?php } ?>
+              <span id="error" class="red"><?= $erro; ?></span>
 
-          <div id="login-box" class="col-md-12">
-            <form id="login-form" class="form" action="db/verifica_login.php" method="post">
-              <h3 class="text-center text-info">Task</h3>
-              <div class="form-group">
-                <label for="username" class="text-info">E-mail:</label><br>
-                <input type="text" name="login" id="username" value="jonatta89@gmail.com" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="password" class="text-info">Senha:</label><br>
-                <input type="password" name="senha" value="123456" id="password" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="remember-me" class="text-info"><span>Lembrar-me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
-                <input type="submit" name="submit" class="btn btn-info btn-md" value="Entrar">
-              </div>
-              <div id="register-link" class="text-right">
-                <a href="cadastro.php" class="text-info">Cadastre-se</a>
-              </div>
-            </form>
+            <?php } else if ($_GET['erro'] == 2) { ?>
+              <span id="error" class="red"><?= $erro; ?></span>
+            <?php } else if ($_GET['erro'] == 3) { ?>
+              <span id="error" class="teal"><?= $erro; ?></span>
+            <?php } ?>
+          <?php }  ?>
+
+          <h3 class="teal-text">Login</h3>
+          <div class="row">
+
+            <div class="input-field col s12">
+              <label for="login">E-mail</label>
+              <input type="text" name="login" value="jonatta89@gmail.com">
+            </div>
+
+            <div class="input-field col s12">
+              <label for="senha">Senha </label>
+              <input type="password" name="senha" value="123456">
+            </div>
           </div>
+
         </div>
-      </div>
+        <div class="card-action right-align">
+          <a href="cadastro.php" class="btn-flat grey-text waves-effect">Cadastre-se</a>
+          <input type="submit" class="btn" value="Entrar">
+        </div>
+      </form>
     </div>
   </div>
+</section>
 
 </body>
 

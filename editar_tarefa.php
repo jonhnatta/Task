@@ -1,5 +1,7 @@
 <?php 
 
+require_once('header.php');
+
 require_once('db/conexao.php');
 
 $sql = "SELECT * FROM categoria";
@@ -13,24 +15,26 @@ $result_tarefa = mysqli_query($con, $sql2);
 $tarefa = mysqli_fetch_array($result_tarefa);
 
 ?>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>task</title>
-</head>
-<body>
-<body>
-  <a href="tarefa.php">Cadastrar Tarefa</a>
-  <a href="home.php">Listar Tarefas</a>
-  <a href="db/sair.php">Sair</a><br><br>
 
-  <form action="db/salvar_tarefa_editada.php?id=<?= $id;?>" method="POST">
-    <label>Titulo</label>
-    <input type="text" name="titulo" value="<?= $tarefa['titulo'];?>"><br><br>
-    <label>Descrição</label><br>
-    <textarea name="descricao"><?= $tarefa['descricao'];?></textarea><br><br>
+<main class="container">
+
+  <form class="row" action="db/salvar_tarefa_editada.php?id=<?= $id;?>" method="POST">
+  
+  <div class="col offset-m3 s12">
+      <h3 class="teal-text">Editar Tarefa</h3>
+    </div>
+
+    <div class="input-field col m6 offset-m3 s12">
+    <input type="text" name="titulo" value="<?= $tarefa['titulo'];?>">
+    <label for="titulo">Titulo</label>
+    </div>
+    
+    <div class="input-field col m6 offset-m3 s12">
+    <textarea style="height: 200px;" name="descricao"><?= $tarefa['descricao'];?></textarea>
+    <label for="descricao">Descrição</label>
+    </div>
+    
+    <div class="input-field col m6 offset-m3 s12">
     <select name="categoria">
       <?php foreach ($result_cat as $key => $value) { ?>
         
@@ -46,11 +50,22 @@ $tarefa = mysqli_fetch_array($result_tarefa);
         ><?php echo $value['nome'] ?></option>
 
       <?php } ?>
-    </select><br><br>
-    <input type="date" name="data" value="<?= $tarefa['data'];?>"><br><br>
-    <input type="time" name="hora" value="<?= $tarefa['hora'];?>"><br><br>
-   <input type="submit" value="Editar">
+    </select>
+    </div>
+    <div class="input-field col m2 offset-m3 s12">
+    <input type="date" name="data" value="<?= $tarefa['data'];?>">
+    </div>
+    <div class="input-field col m1 s12">
+    <input type="time" name="hora" value="<?= $tarefa['hora'];?>">
+    </div>
+    <div class="input-field col m6 offset-m3 s12">
+    <a href="home.php" class="btn red">Cancelar</a>
+   <input class="btn" type="submit" value="Alterar">
+   
+    </div>
   </form>
+
+</main>
 
 </body>
 </html>

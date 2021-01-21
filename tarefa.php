@@ -1,40 +1,54 @@
-<?php 
+<?php
 
 require_once('db/conexao.php');
 
 $sql = "SELECT * FROM categoria";
 $result_cat = mysqli_query($con, $sql);
 
+require_once('header.php');
 ?>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>task</title>
-</head>
-<body>
-<body>
-  <a href="tarefa.php">Cadastrar Tarefa</a>
-  <a href="home.php">Listar Tarefas</a>
-  <a href="db/sair.php">Sair</a><br><br>
 
-  <form action="db/cad_tarefa.php" method="POST">
-    <label for="nome">Titulo</label>
-    <input type="text" name="titulo"><br><br>
-    <label>Descrição</label><br>
-    <textarea name="descricao"></textarea><br><br>
-    <select name="categoria">
-      <?php foreach ($result_cat as $key => $value) { ?>
-        
-        <option value="<?php echo $value['id'] ?>"><?php echo $value['nome'] ?></option>
+<main class="container">
 
-      <?php } ?>
-    </select><br><br>
-    <input type="date" name="data"><br><br>
-    <input type="time" name="hora"><br><br>
-   <input type="submit" value="Cadastrar">
-  </form>
+  <form class="row" action="db/cad_tarefa.php" method="POST">
+    <div class="col offset-m3 s12">
+      <h3 class="teal-text">Cadastrar Tarefa</h3>
+    </div>
+
+    <div class="input-field col m6 offset-m3 s12">
+      <input type="text" name="titulo">
+      <label for="titulo">Titulo</label>
+    </div>
+
+    <div class="input-field col m6 offset-m3 s12">
+      <textarea style="height: 200px;" name="descricao"></textarea>
+      <label for="descricao">Descrição</label>
+    </div>
+
+    <div class="input-field col m6 offset-m3 s12">
+      <select name="categoria">
+        <?php foreach ($result_cat as $key => $value) { ?>
+
+          <option value="<?php echo $value['id'] ?>"><?php echo $value['nome'] ?></option>
+
+        <?php } ?>
+      </select>
+    </div>
+    <div class="input-field col m2 offset-m3 s12">
+      <input type="date" name="data">
+    </div>
+    <div class="input-field col m1 s12">
+      <input type="time" name="hora">
+    </div>
+    <div class="input-field col m6 offset-m3 s12">
+    <a href="home.php" class="btn red">Cancelar</a>
+      <input class="btn" type="submit" value="Cadastrar">
+      
+    </div>
+      </form>
+
+</main>
 
 </body>
+
 </html>
