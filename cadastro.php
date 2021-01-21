@@ -62,7 +62,7 @@ session_start();
 
         </div>
         <div class="card-action right-align">
-          <a href="cadastro.php" class="btn red">Cancelar</a>
+          <a href="index.php" class="btn red">Cancelar</a>
           <input type="submit" class="btn" value="Cadastrar">
         </div>
       </form>
