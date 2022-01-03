@@ -48,7 +48,6 @@ $result_tarefa = mysqli_query($con, $sql);
         <th>Data</th>
         <th>Hora</th>
         <th>Descrição</th>
-        <th>Categoria</th>
         <th>Opções</th>
       </tr>
     </thead>
@@ -62,13 +61,6 @@ $result_tarefa = mysqli_query($con, $sql);
         <td><?= date("d/m/Y", strtotime($value['data'])); ?></td>
         <td><?= $value['hora']; ?></td>
         <td><?= $value['descricao']; ?></td>
-        <?php
-        $id_tarefa = $value['categoria_id'];
-        $sql = "SELECT * FROM categoria WHERE id = $id_tarefa";
-        $result = mysqli_query($con, $sql);
-        $cat_tarefa = mysqli_fetch_array($result);
-        ?>
-        <td><?= $cat_tarefa['nome']; ?></td>
         <td>
           <a href="editar_tarefa.php?id=<?= $value['idt']; ?>"><i class="material-icons">edit</i></a>
           <a href="db/excluir_tarefa.php?id=<?= $value['idt']; ?>"><i class="material-icons red-text">delete</i></a>
